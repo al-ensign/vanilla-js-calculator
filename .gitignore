@@ -1,3 +1,16 @@
 ./node_modules/*
 node_modules
 node_modules/
+
+# production
+/build
+
+# documentation
+/docs
+
+# misc
+.DS_Store
+.vscode
+webStorm.config.js
+.idea
+.env
