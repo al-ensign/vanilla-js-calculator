@@ -1,4 +1,6 @@
-const path = require('path');
+/* eslint-disable no-undef */
+/* eslint-disable @typescript-eslint/no-var-requires */
+//const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
@@ -24,8 +26,6 @@ module.exports = {
         options: {
             loader: 'ts',
             target: 'es6',
-            exclude: /node_modules/,
-            include: path.resolve(__dirname, 'src'),
         }
       },
     ],
