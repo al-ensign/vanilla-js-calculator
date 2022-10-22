@@ -1,24 +1,16 @@
 {
   "name": "js_calculator",
   "version": "1.0.0",
-  "description": "",
   "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/alensign/js_basic_calculator.git"
+    "start": "webpack serve --config webpack.dev.js",
+    "build:prod": "webpack --config webpack.prod.js",
+    "build:dev": "webpack --config webpack.dev.js"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/alensign/js_basic_calculator/issues"
-  },
-  "homepage": "https://github.com/alensign/js_basic_calculator#readme",
   "devDependencies": {
     "compression-webpack-plugin": "^10.0.0",
-    "copy-webpack-plugin": "^11.0.0",
     "esbuild-loader": "^2.20.0",
     "eslint": "^8.25.0",
     "eslint-import-resolver-typescript": "^3.5.2",
