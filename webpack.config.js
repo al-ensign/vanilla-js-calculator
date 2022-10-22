@@ -20,12 +20,12 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        use: 'esbuild-loader',
+        loader: 'esbuild-loader',
         options: {
             loader: 'ts',
             target: 'es6',
             exclude: /node_modules/,
-            include: resolve(__dirname, 'src'),
+            include: path.resolve(__dirname, 'src'),
         }
       },
     ],
