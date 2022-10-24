@@ -1,6 +1,3 @@
-/* eslint-disable no-undef */
-/* eslint-disable @typescript-eslint/no-var-requires */
-//const path = require('path');
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const ESLintPlugin = require("eslint-webpack-plugin")
 
