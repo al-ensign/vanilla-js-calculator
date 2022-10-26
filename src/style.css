@@ -13,8 +13,8 @@
     width: 99.2%;
     height: 100px;
 }
-.span-4{
-    grid-column: span 4;
+.span-3{
+    grid-column: span 3;
 }
 .button-el{
     font-family: 'Roboto', serif;
@@ -23,7 +23,6 @@
     color: white;
     border:0.05px solid black;
     background: rgb(35, 31, 31);
-
 }
 .button-el:hover{
     background: rgb(106, 103, 103);
@@ -33,4 +32,9 @@
 }
 .special{
     background-color:orange;
+}
+.button-empty{
+    height: 63px;
+    border:0.05px solid black;
+    background: rgb(35, 31, 31);
 }
