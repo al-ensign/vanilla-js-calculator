@@ -1,0 +1,36 @@
+.calc-keyboard {
+    display:grid;
+    grid-template-columns: repeat(7,1fr);
+    border:0;
+}
+.calc-numbers{
+    font-family: 'Roboto', serif;
+    background: black;
+    color: white;
+    font-size: 1.7em;
+    border:1px solid black;
+    text-align: right;
+    width: 99.2%;
+    height: 100px;
+}
+.span-4{
+    grid-column: span 4;
+}
+.button-el{
+    font-family: 'Roboto', serif;
+    font-size:1em;
+    height: 65px;
+    color: white;
+    border:0.05px solid black;
+    background: rgb(35, 31, 31);
+
+}
+.button-el:hover{
+    background: rgb(106, 103, 103);
+}
+.special:hover{
+    background: rgb(247, 97, 4);
+}
+.special{
+    background-color:orange;
+}
