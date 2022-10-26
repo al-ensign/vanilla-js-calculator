@@ -21,20 +21,20 @@
     font-size:1em;
     height: 65px;
     color: white;
-    border:0.05px solid black;
+    border:0.05px solid rgb(65, 48, 48);
     background: rgb(35, 31, 31);
 }
 .button-el:hover{
     background: rgb(106, 103, 103);
 }
 .special:hover{
-    background: rgb(247, 97, 4);
+    background: rgb(236, 116, 18);
 }
 .special{
-    background-color:orange;
+    background-color:rgb(254, 76, 0);
 }
 .button-empty{
     height: 63px;
-    border:0.05px solid black;
+    border:0.05px solid rgb(65, 48, 48);
     background: rgb(35, 31, 31);
 }
