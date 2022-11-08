@@ -1,5 +1,5 @@
 import { Button } from "./ui/button"
-import * as styles from "./style/style.css"
+// import * as styles from "./style/style.css"
 
 //create calculator div
 const calculatorDiv = document.createElement("div")
@@ -25,7 +25,7 @@ buttonsDiv.className = "buttons"
 calculator.appendChild(buttonsDiv)
 
 //create all buttons
-const mc = new Button("btn", "mc", "mc", null)
+const mc = new Button("btn", "mc", "mc")
 
 // const mPlus = new Button("btn", "mPlus", "m+")
 // const mMinus = new Button("btn", "mMinus", "m-")
@@ -62,5 +62,5 @@ const mc = new Button("btn", "mc", "mc", null)
 // const dot = new Button("btn", "dot", ".")
 // const zero = new Button("btn", "zero", "0")
 // const equal = new Button("btn", "equal", "&#61")
-
-console.log(mc.init())
+mc.init()
+console.log(mc)

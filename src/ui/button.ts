@@ -1,19 +1,28 @@
-type ClickHandler = (event: Event) => void
+// type ClickHandler = (event: Event) => void
 
-interface IButton {
-  onclick: ClickHandler
-}
+// interface IButton {
+//   onclick: ClickHandler
+// }
 
-export class Button implements IButton {
-  onclick: ClickHandler
+// export class Button implements IButton {
+//   onclick: ClickHandler
 
+//   constructor(
+//     private className: string,
+//     private id: string,
+//     private innerHTML: string,
+//     onclick: ClickHandler
+//   ) {
+//     this.onclick = onclick
+//   }
+
+export class Button {
   constructor(
     private className: string,
     private id: string,
-    private innerHTML: string,
-    onclick: ClickHandler
+    private innerHTML: string
   ) {
-    this.onclick = onclick
+    ;(this.className = className), (this.id = id), (this.innerHTML = innerHTML)
   }
 
   init() {
