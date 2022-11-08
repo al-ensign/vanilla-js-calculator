@@ -2,13 +2,13 @@
   "compilerOptions": {
     "outDir": "./dist/",
     "baseUrl": "src",
-    "style/*": ["src/style/*"],
     "noImplicitAny": true,
     "module": "commonjs",
     "target": "ES6",
     "allowJs": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "preserveSymlinks": true
   },
   "include": ["src"],
-  "exclude": ["public", "node_modules"]
+  "exclude": ["node_modules"]
 }

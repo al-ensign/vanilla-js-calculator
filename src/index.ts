@@ -1,5 +1,5 @@
 import { Button } from "./ui/button"
-import * as styles from "./style/style"
+import * as styles from "./style/style.css"
 
 //create buttons div
 const buttonsDiv = document.createElement("div")
