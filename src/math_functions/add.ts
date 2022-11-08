@@ -1,2 +1,4 @@
-export function add1() {}
-export const add2 = () => {}
+export const addNum = (prevNum: number, currentNum: number) => {
+  const result = prevNum + currentNum
+  return result
+}
