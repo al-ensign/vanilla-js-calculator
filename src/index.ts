@@ -1,12 +1,28 @@
 import { Button } from "./ui/button"
 import * as styles from "./style/style.css"
 
+//create calculator div
+const calculatorDiv = document.createElement("div")
+calculatorDiv.className = "calculator"
+calculatorDiv.id = "main"
+document.body.appendChild(calculatorDiv)
+
+//select calculatorDiv from HTML
+const calculator = document.querySelector(".calculator")
+
+//create screen div
+const screenDiv = document.createElement("div")
+calculatorDiv.className = "calc-screen"
+
+//add screenDiv to calculatorDiv
+calculator.appendChild(screenDiv)
+
 //create buttons div
 const buttonsDiv = document.createElement("div")
 buttonsDiv.className = "buttons"
 
-//add buttonsDiv to Body
-document.body.appendChild(buttonsDiv)
+//add buttonsDiv to calculatorDiv
+calculator.appendChild(buttonsDiv)
 
 //create all buttons
 const mc = new Button("btn", "mc", "mc", null)
