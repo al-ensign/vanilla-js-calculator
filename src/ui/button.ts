@@ -16,16 +16,21 @@
 //     this.onclick = onclick
 //   }
 
-export class Button {
-  constructor(
-    private className: string,
-    private id: string,
-    private innerHTML: string
-  ) {
+interface IButton {
+  className: string
+  id: string
+  innerHTML: string
+  init(): void
+}
+export class Button implements IButton {
+  className: string
+  id: string
+  innerHTML: string
+  constructor(className: string, id: string, innerHTML: string) {
     ;(this.className = className), (this.id = id), (this.innerHTML = innerHTML)
   }
 
-  init() {
+  init(): void {
     const element = document.createElement("button")
     const buttons = document.querySelector(".buttons")
     element.className = this.className
