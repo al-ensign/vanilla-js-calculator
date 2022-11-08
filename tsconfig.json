@@ -2,8 +2,9 @@
   "compilerOptions": {
     "outDir": "./dist/",
     "baseUrl": "src",
+    "style/*": ["src/style/*"],
     "noImplicitAny": true,
-    "module": "ES6",
+    "module": "commonjs",
     "target": "ES6",
     "allowJs": true,
     "moduleResolution": "node"

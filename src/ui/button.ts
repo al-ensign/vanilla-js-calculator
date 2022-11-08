@@ -1,4 +1,5 @@
 type ClickHandler = (event: Event) => void
+
 interface IButton {
   onclick: ClickHandler
 }
@@ -13,5 +14,14 @@ export class Button implements IButton {
     onclick: ClickHandler
   ) {
     this.onclick = onclick
+  }
+
+  init() {
+    const element = document.createElement("button")
+    const buttons = document.querySelector(".buttons")
+    element.className = this.className
+    element.id = this.id
+    element.innerHTML = this.innerHTML
+    buttons.appendChild(element)
   }
 }

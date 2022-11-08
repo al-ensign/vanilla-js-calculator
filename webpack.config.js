@@ -27,6 +27,9 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: [".tsx", ".ts", ".js"],
+    extensions: [".tsx", ".ts", ".js", "css"],
+    alias: {
+      style: path.resolve(__dirname, "src", "style"),
+    },
   },
 }
