@@ -1,4 +1,5 @@
 import { Button } from "./ui/button"
+import "./style/style.css"
 
 //create calculator div
 const calculatorDiv = document.createElement("div")
