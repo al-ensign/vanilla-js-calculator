@@ -7,7 +7,11 @@
     "target": "ES6",
     "allowJs": true,
     "moduleResolution": "node",
-    "preserveSymlinks": true
+    "preserveSymlinks": true,
+    "esModuleInterop": true
+  },
+  "ts-node": {
+    "esm": true
   },
   "include": ["src"],
   "exclude": ["node_modules"]
