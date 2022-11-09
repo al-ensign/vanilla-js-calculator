@@ -1,6 +1,6 @@
-import { nthRoot } from "../math_functions/any_root"
+import { nthRoot } from "../math_functions/nth_root"
 
-describe("anyRoot module", () => {
+describe("nthRoot module", () => {
   test("5-th root of 100000 to equal 10", () => {
     expect(nthRoot(100000, 5)).toBe(10.000000000000002)
   }),
