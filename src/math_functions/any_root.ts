@@ -1,4 +1,4 @@
-export const anyRoot = function (prevNum: number, currentNum: number) {
+export const nthRoot = function (prevNum: number, currentNum: number) {
   let result
   if (currentNum != 0 && currentNum % 2 == 0) {
     if (prevNum < 0) {
