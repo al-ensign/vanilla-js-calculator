@@ -24,6 +24,10 @@ module.exports = {
           target: "es6",
         },
       },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
     ],
   },
   resolve: {
