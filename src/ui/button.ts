@@ -27,7 +27,10 @@ export class Button implements IButton {
   id: string
   innerHTML: string
   constructor(className: string, id: string, innerHTML: string) {
-    ;(this.className = className), (this.id = id), (this.innerHTML = innerHTML)
+    ;(this.className = className),
+      (this.id = id),
+      (this.innerHTML = innerHTML),
+      this.init()
   }
 
   init(): void {
