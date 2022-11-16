@@ -66,7 +66,14 @@ elements.computeElement.addEventListener("click", (e) => {
     return
   }
   haveDot = false
-  if (!currNum && histNum) {
+  if (currNum && !histNum) {
+    clearCurrentAddHistory()
+    elements.currDisplayElement.innerText = currNum
+    elements.tempResDisplayElement.innerText = ""
+    result = ""
+    histNum = ""
+    elements.histDisplayElement.innerText = ""
+  } else if (!currNum && histNum) {
     clearCurrentAddHistory()
     currNum = result
     elements.currDisplayElement.innerText = currNum
@@ -178,17 +185,6 @@ elements.divideByXElement.addEventListener("click", (e) => {
   clearCurrentAddHistory(operationName)
 })
 
-elements.percentElement.addEventListener("click", (e) => {
-  e.preventDefault()
-  if (!currNum) {
-    return
-  }
-  let currentNum = parseFloat(currNum)
-  result = percentOfNum(currentNum).toString()
-  const operationName = "% "
-  clearCurrentAddHistory(operationName)
-})
-
 function clearCurrentAddHistory(name = "") {
   /* 
   1) stores currNum and operation in History 
@@ -228,6 +224,9 @@ function computeOperation() {
       break
     case "n-th Root":
       result = nthRoot(prevNum, currentNum)
+      break
+    case "%":
+      result = percentOfNum(prevNum, currentNum)
       break
     default:
       return

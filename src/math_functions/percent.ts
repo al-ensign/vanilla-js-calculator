@@ -1,4 +1,4 @@
-export const percentOfNum = (num: number) => {
-  const result = num / 100
+export const percentOfNum = (prevNum: number, currentNum: number) => {
+  const result = (prevNum / currentNum) * 100
   return result
 }
