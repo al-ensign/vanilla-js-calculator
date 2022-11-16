@@ -3,6 +3,9 @@ import { addNum } from "../math_functions/add"
 import { subtractNum } from "../math_functions/subtract"
 import { multiplyNum } from "../math_functions/multiply"
 import { divideByNum } from "../math_functions/divide"
+import { squarePow } from "../math_functions/square_pow"
+import { cubePow } from "../math_functions/cube_pow"
+import { anyPow } from "../math_functions/any_pow"
 
 let histNum = ""
 let currNum = ""
@@ -47,22 +50,31 @@ elements.operationElements.forEach((operation: HTMLDivElement) => {
     //clear CurrNum and store data in History and Temporary Result displays
     clearCurrentAddHistory(operationName)
     lastOperation = operationName
-    console.log(lastOperation)
   })
 })
 
 elements.computeElement.addEventListener("click", (e) => {
   e.preventDefault()
-  if (!currNum || !histNum) {
+  if (!currNum && !histNum) {
     return
   }
   haveDot = false
-  computeOperation()
-  clearCurrentAddHistory()
-  elements.currDisplayElement.innerText = result
-  elements.tempResDisplayElement.innerText = ""
-  currNum = result
-  histNum = ""
+  if (!currNum && histNum) {
+    clearCurrentAddHistory()
+    currNum = result
+    elements.currDisplayElement.innerText = currNum
+    elements.tempResDisplayElement.innerText = ""
+    result = ""
+    histNum = ""
+    elements.histDisplayElement.innerText = ""
+  } else {
+    computeOperation()
+    clearCurrentAddHistory()
+    elements.currDisplayElement.innerText = result
+    elements.tempResDisplayElement.innerText = ""
+    currNum = result
+    histNum = ""
+  }
 })
 
 elements.clearAllElement.addEventListener("click", (e) => {
@@ -74,6 +86,42 @@ elements.clearAllElement.addEventListener("click", (e) => {
   histNum = ""
   result = ""
   lastOperation = ""
+})
+
+elements.changeSignElement.addEventListener("click", (e) => {
+  e.preventDefault()
+  currNum = (-parseFloat(currNum)).toString()
+  elements.currDisplayElement.innerText = currNum
+})
+
+elements.squareElement.addEventListener("click", (e) => {
+  e.preventDefault()
+  //does nothing if there is no currNum
+  if (!currNum) {
+    return
+  }
+
+  //resets haveDot to false so that we can use float as next operand
+  haveDot = false
+  let currentNum = parseFloat(currNum)
+  result = squarePow(currentNum).toString()
+  const operationName = "^2"
+  clearCurrentAddHistory(operationName)
+})
+
+elements.cubeElement.addEventListener("click", (e) => {
+  e.preventDefault()
+  //does nothing if there is no currNum
+  if (!currNum) {
+    return
+  }
+
+  //resets haveDot to false so that we can use float as next operand
+  haveDot = false
+  let currentNum = parseFloat(currNum)
+  result = cubePow(currentNum).toString()
+  const operationName = "^3"
+  clearCurrentAddHistory(operationName)
 })
 
 function clearCurrentAddHistory(name = "") {
@@ -109,4 +157,10 @@ function computeOperation() {
     default:
       return
   }
+}
+
+function computePower() {
+  let prevNum = parseFloat(result)
+  let currentNum = parseFloat(currNum)
+  result = anyPow(prevNum, currentNum)
 }
