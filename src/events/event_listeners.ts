@@ -65,6 +65,17 @@ elements.computeElement.addEventListener("click", (e) => {
   histNum = ""
 })
 
+elements.clearAllElement.addEventListener("click", (e) => {
+  e.preventDefault()
+  elements.histDisplayElement.innerText = ""
+  elements.currDisplayElement.innerText = ""
+  elements.tempResDisplayElement.innerText = ""
+  currNum = ""
+  histNum = ""
+  result = ""
+  lastOperation = ""
+})
+
 function clearCurrentAddHistory(name = "") {
   /* 
   1) stores currNum and operation in History 
