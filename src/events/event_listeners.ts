@@ -6,6 +6,13 @@ import { divideByNum } from "../math_functions/divide"
 import { squarePow } from "../math_functions/square_pow"
 import { cubePow } from "../math_functions/cube_pow"
 import { anyPow } from "../math_functions/any_pow"
+import { nthRoot } from "../math_functions/nth_root"
+import { factorialNum } from "../math_functions/factorial"
+import { squareRoot } from "../math_functions/square_root"
+import { cubicRoot } from "../math_functions/cubic_root"
+import { tenPowX } from "../math_functions/ten_pow_x"
+import { oneByX } from "../math_functions/one_xth"
+import { percentOfNum } from "../math_functions/percent"
 
 let histNum = ""
 let currNum = ""
@@ -96,13 +103,9 @@ elements.changeSignElement.addEventListener("click", (e) => {
 
 elements.squareElement.addEventListener("click", (e) => {
   e.preventDefault()
-  //does nothing if there is no currNum
   if (!currNum) {
     return
   }
-
-  //resets haveDot to false so that we can use float as next operand
-  haveDot = false
   let currentNum = parseFloat(currNum)
   result = squarePow(currentNum).toString()
   const operationName = "^2"
@@ -111,16 +114,78 @@ elements.squareElement.addEventListener("click", (e) => {
 
 elements.cubeElement.addEventListener("click", (e) => {
   e.preventDefault()
-  //does nothing if there is no currNum
   if (!currNum) {
     return
   }
-
-  //resets haveDot to false so that we can use float as next operand
-  haveDot = false
   let currentNum = parseFloat(currNum)
   result = cubePow(currentNum).toString()
   const operationName = "^3"
+  clearCurrentAddHistory(operationName)
+})
+
+elements.factorialElement.addEventListener("click", (e) => {
+  e.preventDefault()
+  if (!currNum) {
+    return
+  }
+  let currentNum = parseFloat(currNum)
+  result = factorialNum(currentNum).toString()
+  const operationName = "!"
+  clearCurrentAddHistory(operationName)
+})
+
+elements.rootElement.addEventListener("click", (e) => {
+  e.preventDefault()
+  if (!currNum) {
+    return
+  }
+  let currentNum = parseFloat(currNum)
+  result = squareRoot(currentNum).toString()
+  const operationName = "Square Root"
+  clearCurrentAddHistory(operationName)
+})
+
+elements.cubicRootElement.addEventListener("click", (e) => {
+  e.preventDefault()
+  if (!currNum) {
+    return
+  }
+  let currentNum = parseFloat(currNum)
+  result = cubicRoot(currentNum).toString()
+  const operationName = "Cubic Root"
+  clearCurrentAddHistory(operationName)
+})
+
+elements.tenPowerXElement.addEventListener("click", (e) => {
+  e.preventDefault()
+  if (!currNum) {
+    return
+  }
+  let currentNum = parseFloat(currNum)
+  result = tenPowX(currentNum).toString()
+  const operationName = "10 ^"
+  clearCurrentAddHistory(operationName)
+})
+
+elements.divideByXElement.addEventListener("click", (e) => {
+  e.preventDefault()
+  if (!currNum) {
+    return
+  }
+  let currentNum = parseFloat(currNum)
+  result = oneByX(currentNum).toString()
+  const operationName = "1 / "
+  clearCurrentAddHistory(operationName)
+})
+
+elements.percentElement.addEventListener("click", (e) => {
+  e.preventDefault()
+  if (!currNum) {
+    return
+  }
+  let currentNum = parseFloat(currNum)
+  result = percentOfNum(currentNum).toString()
+  const operationName = "% "
   clearCurrentAddHistory(operationName)
 })
 
@@ -131,7 +196,11 @@ function clearCurrentAddHistory(name = "") {
   3) clears currNum and Current display
   4) adds value to the Temporary Result display
   */
-  histNum += currNum + " " + name + " "
+  if (name === "10 ^" || name === "1 / ") {
+    histNum = name + " " + currNum + " "
+  } else {
+    histNum += currNum + " " + name + " "
+  }
   elements.histDisplayElement.innerText = histNum
   currNum = ""
   elements.currDisplayElement.innerText = ""
@@ -154,13 +223,13 @@ function computeOperation() {
     case "-":
       result = subtractNum(prevNum, currentNum)
       break
+    case "^":
+      result = anyPow(prevNum, currentNum)
+      break
+    case "n-th Root":
+      result = nthRoot(prevNum, currentNum)
+      break
     default:
       return
   }
-}
-
-function computePower() {
-  let prevNum = parseFloat(result)
-  let currentNum = parseFloat(currNum)
-  result = anyPow(prevNum, currentNum)
 }

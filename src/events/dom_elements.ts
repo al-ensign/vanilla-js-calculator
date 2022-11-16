@@ -18,6 +18,10 @@ export const computeElement = document.getElementById(
   "equal"
 ) as HTMLDivElement | null
 
+export const percentElement = document.getElementById(
+  "percent"
+) as HTMLDivElement | null
+
 export const squareElement = document.getElementById(
   "square"
 ) as HTMLDivElement | null
