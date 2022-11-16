@@ -20,6 +20,8 @@ let result: any = null
 let lastOperation = ""
 let haveDot = false
 
+let memoryNum = "0"
+
 elements.numberElements.forEach((number: HTMLDivElement) => {
   number.addEventListener("click", (e) => {
     e.preventDefault()
@@ -183,6 +185,39 @@ elements.divideByXElement.addEventListener("click", (e) => {
   result = oneByX(currentNum).toString()
   const operationName = "1 / "
   clearCurrentAddHistory(operationName)
+})
+
+elements.mPlusElement.addEventListener("click", (e) => {
+  e.preventDefault()
+  if (!currNum) {
+    return
+  }
+
+  let currentNum = parseFloat(currNum)
+  let memoryNumFloat = parseFloat(memoryNum)
+  memoryNum = addNum(memoryNumFloat, currentNum).toString()
+})
+
+elements.mMinusElement.addEventListener("click", (e) => {
+  e.preventDefault()
+  if (!currNum) {
+    return
+  }
+
+  let currentNum = parseFloat(currNum)
+  let memoryNumFloat = parseFloat(memoryNum)
+  memoryNum = subtractNum(memoryNumFloat, currentNum).toString()
+})
+
+elements.mcElement.addEventListener("click", (e) => {
+  e.preventDefault()
+  memoryNum = "0"
+})
+
+elements.mrElement.addEventListener("click", (e) => {
+  e.preventDefault()
+  currNum = memoryNum
+  elements.currDisplayElement.innerHTML = currNum
 })
 
 function clearCurrentAddHistory(name = "") {
