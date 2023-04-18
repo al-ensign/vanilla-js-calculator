@@ -16,7 +16,7 @@ This is a vanilla JavaScript scientific calculator that provides various scienti
 - Memory functions: MC, M+, M-, MR
 - Clear and all-clear functionality
 - Error handling for dividing by zero and invalid input
-- Operation chaining: when the left operand is entered, the right operand and operation are stored, and when yuser clicks on the next operation or "=", the current operation is executed and the result is stored as the left operand
+- Operation chaining: when the left operand is entered, the right operand and operation are stored, and when user clicks on the next operation or "=", the current operation is executed and the result is stored as the left operand
 
 ## Installation
 
